@@ -1,0 +1,32 @@
+#include<stdio.h>
+
+int verify(int crdtls [3][2], int ID, int PIN)
+{
+    int acc = 0;
+    for(int i = 0; i<3; i++){
+        if(ID == crdtls[i][0] && PIN == crdtls[i][1]){
+        acc= 1;
+        }
+    }
+    return acc;
+}
+
+int main ()
+{
+    int crdtls[3][2] = {{1111,111}, {2222,222}, {3333,333}};
+    int ID, PIN;
+    
+    printf("Enter ID Number: ");
+    scanf("%d", &ID);
+    printf("Enter PIN: ");
+    scanf("%d", &PIN);
+    
+    if(verify(crdtls,ID,PIN))
+    {
+        printf("You have successfully logged in\n ID#: %d", ID);
+    } 
+    else {
+        printf("Invalid ID/PIN!");
+    }
+    return 0;
+}
